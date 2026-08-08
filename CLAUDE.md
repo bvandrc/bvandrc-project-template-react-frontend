@@ -1,7 +1,14 @@
+## Commands
+
+- `pnpm dev` — dev server on port 5000.
+- `pnpm check` — format + both type checks. Run before every commit; it's what CI runs.
+- `pnpm preview:ci` — build and serve on port 4173, which is what the Playwright suites expect.
+- `pnpm test:e2e` / `pnpm test:a11y` / `pnpm test:lighthouse` — the three suites, against a running preview server.
 
 ## Conventions
 
 - **Package manager**: pnpm. `npm install` writes a competing `package-lock.json` that CI ignores.
+- **package.json**: Key order is enforced in CI by `bvandrc/lint-package-json`. Adding a field in the wrong place fails the lint job.
 - **File naming**: kebab-case for utils (`auth-utils.ts`), PascalCase for component primitives (`DropdownMenu.tsx`), camelCase for hooks (`useSession.tsx`, `useSettings.ts`); use `.tsx` when the file exports JSX.
 - **Components**: Arrow-function `const` with a named export; no default exports, unless something requires one (e.g. page components for lazy-loaded routes).
 - **Variant styling**: Map variants to classes in a module-level constant (`satisfies Record<Variant, string>`) and index into it — not conditionals inside JSX. See `VARIANT_CLASSES` in `Button.tsx`, `TONE_CLASSES` in `Badge.tsx`.
