@@ -46,7 +46,8 @@
     "es-toolkit": "^1",
     "react": "^18",
     "react-dom": "^18",
-    "react-ga4": "^3"
+    "react-ga4": "^3",
+    "usehooks-ts": "^3"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4",
