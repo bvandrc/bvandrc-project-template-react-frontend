@@ -33,9 +33,9 @@ Starter template for React frontends, deployed to GitHub Pages by
 - **Components**: Arrow-function `const` with a named export; no default exports, unless something requires one (e.g. page components for lazy-loaded routes).
 - **Prop types**: Compose from DOM prop types — extend them, or `Pick`/`Omit`
   the parts you need — rather than re-declaring `className`, `type`, `href`,
-  etc. Spread the rest onto the element only when there are many pass-through
-  props (see `Button.tsx`); for one or two, name them explicitly. Use
-  `import type` for type-only imports.
+  etc. Spread the rest onto the element when there are many pass-through props
+  (see `Button.tsx`); for one or two, name them explicitly. Type-only imports
+  use `import type` — Biome fixes this for you.
 - **Variant styling**: Map variants to classes in a module-level constant (`satisfies Record<Variant, string>`) and index into it — not conditionals inside JSX. See `VARIANT_CLASSES` in `Button.tsx`, `TONE_CLASSES` in `Badge.tsx`.
 - **Tailwind sizing**: Use `size-X` Tailwind class, not `w-X h-X`.
 - **Constant objects**: UPPER_CASE for names, UPPER_CASE for keys that name entries (namespace/enum-style, e.g. `ROUTES.HOME`, `SELECTORS.TASK_FORM.SUBMIT_BTN`), camelCase for keys that are typed properties of an entry (e.g. `color`, `icon` in `FEATURES`) and for function-valued keys (e.g. `SELECTORS.TASK_CARD.rankFieldBadge(field)`).
