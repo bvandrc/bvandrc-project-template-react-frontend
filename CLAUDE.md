@@ -1,9 +1,9 @@
 
 ## Conventions
 
-- **Package manager**: pnpm. Never `npm`/`yarn` — the repo pins `packageManager` and CI installs with pnpm.
+- **Package manager**: pnpm. `npm install` writes a competing `package-lock.json` that CI ignores.
 - **File naming**: kebab-case for utils (`auth-utils.ts`), PascalCase for component primitives (`DropdownMenu.tsx`), camelCase for hooks (`useSession.tsx`, `useSettings.ts`); use `.tsx` when the file exports JSX.
-- **Components**: Arrow-function `const` with a named export; no default exports. Type props as an `interface` extending the DOM attributes type (e.g. `ButtonHTMLAttributes<HTMLButtonElement>`) and spread `...props` onto the root element so `className` and `data-testid` pass through. Primitives merge the incoming `className` last via `classnames`.
+- **Components**: Arrow-function `const` with a named export; no default exports.
 - **Variant styling**: Map variants to classes in a module-level constant (`satisfies Record<Variant, string>`) and index into it — not conditionals inside JSX. See `VARIANT_CLASSES` in `Button.tsx`, `TONE_CLASSES` in `Badge.tsx`.
 - **Tailwind sizing**: Use `size-X` Tailwind class, not `w-X h-X`.
 - **Constant objects**: UPPER_CASE for names, UPPER_CASE for keys that name entries (namespace/enum-style, e.g. `ROUTES.HOME`, `SELECTORS.TASK_FORM.SUBMIT_BTN`), camelCase for keys that are typed properties of an entry (e.g. `color`, `icon` in `FEATURES`) and for function-valued keys (e.g. `SELECTORS.TASK_CARD.rankFieldBadge(field)`).
