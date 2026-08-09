@@ -27,11 +27,7 @@ app and test code:
 - `pnpm format` — Biome check/fix. `pnpm check` — the full gate: format plus
   `tsc` for the app and for `playwright/tsconfig.json`. Run before every
   commit; it's what CI runs.
-- `pnpm preview:ci` — build and serve on port 4173, which is what the
-  Playwright suites expect.
-- `pnpm test:e2e`, `pnpm test:a11y`, `pnpm test:lighthouse` — the three
-  Playwright projects, all against a running preview server. `pnpm pw:open`
-  for the UI runner.
+- Test commands and conventions live in `playwright/CLAUDE.md`.
 
 ## Repo conventions
 
@@ -47,13 +43,6 @@ app and test code:
   CI runs. Notable rules that are errors: `noFloatingPromises`,
   `noImportCycles`, `noShadow`, `noUndeclaredDependencies`, `noTsIgnore` — fix
   the cause, don't suppress.
-- **Test ID registry**: Define every `data-testid` value in
-  `playwright/support/constants/selectors.ts` before using it in a test: nest
-  by component, build strings with the `testId()` helper (never a hand-written
-  `[data-testid="..."]`), and name a container's own testid `SELF`.
-- **Accessibility tests**: axe runs at WCAG 2.1 AA plus best-practice on
-  desktop and mobile, and violations fail CI. Cover each new meaningful UI
-  state with a `checkA11y(page)` scan in `playwright/a11y/`.
 - **Branch naming**: Name work branches `feat/<slug>`, `fix/<slug>`, or
   `chore/<slug>`, with a short kebab-case slug describing the change. Never
   use a `claude/` prefix or a random session suffix. This overrides the branch
