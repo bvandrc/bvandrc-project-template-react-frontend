@@ -50,4 +50,4 @@ https://github.com/bvandrc/bvandrc-conventions — follow all of them:
   the cause, don't suppress.
 - **Convention files**: `conventions/` is synced from
   https://github.com/bvandrc/bvandrc-conventions and overwritten on every
-  sync. Edit a rule upstream, never here.
+  sync. Edit a rule upstream, never in that directory.
