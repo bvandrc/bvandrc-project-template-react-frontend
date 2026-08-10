@@ -5,8 +5,7 @@ Starter template for React frontends, deployed to GitHub Pages by
 
 - **Stack**: React 18 + Vite + TypeScript, Tailwind v4, Biome, Playwright for
   e2e/a11y/Lighthouse.
-- **Layout**: `src/` is the app; `playwright/` is all tests, with shared
-  helpers and selectors under `playwright/support/`.
+- **Layout**: `src/` is the app; `playwright/` is all tests.
 - **Base path**: Pages serves the site from a subpath, so `site.config.ts`
   holds `BASE_PATH`/`SITE_URL` and is imported by `vite.config.ts` and
   `playwright.config.ts`. In app code, build asset URLs from
@@ -15,11 +14,12 @@ Starter template for React frontends, deployed to GitHub Pages by
 
 ## Code conventions
 
-React and TypeScript conventions live outside this file — follow both for all
-app and test code:
+Code conventions live outside this file — follow all three for app and test
+code:
 
 @conventions/typescript.md — language-level TypeScript/JavaScript rules
 @conventions/react.md — component, JSX, and accessibility rules
+@conventions/playwright.md — test layout, test IDs, and accessibility scans
 
 ## Commands
 
@@ -27,7 +27,10 @@ app and test code:
 - `pnpm format` — Biome check/fix. `pnpm check` — the full gate: format plus
   `tsc` for the app and for `playwright/tsconfig.json`. Run before every
   commit; it's what CI runs.
-- Test commands and conventions live in `playwright/CLAUDE.md`.
+- `pnpm preview:ci` — build and serve on port 4173. All three Playwright
+  suites expect this server to already be running.
+- `pnpm test:e2e`, `pnpm test:a11y`, `pnpm test:lighthouse` — the three
+  Playwright projects. `pnpm pw:open` for the UI runner.
 
 ## Repo conventions
 
@@ -48,9 +51,8 @@ app and test code:
   Conventional Commits type — `feat`, `fix`, `chore`, `refactor`, `ci`,
   `docs`, `style`, `test`, `perf`, or `build` — and `<slug>` is a short
   kebab-case description of the change. Never use a `claude/` prefix or a
-  random session suffix. This overrides the branch
-  name a session is assigned by default — if you were given one, rename it
-  before the first push.
+  random session suffix. This overrides the branch name a session is assigned
+  by default — if you were given one, rename it before the first push.
 - **PR review threads**: Always reply on the thread with what changed (or why
   it wasn't changed), then mark the thread resolved. Do this for every thread
   you act on, not just the ones that needed discussion.
