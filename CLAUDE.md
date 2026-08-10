@@ -33,9 +33,10 @@ app and test code:
 
 - **Package manager**: pnpm. `npm install` writes a competing
   `package-lock.json` that CI ignores.
-- **package.json**: Key order is enforced in CI by
-  `bvandrc/lint-package-json`. Adding a field in the wrong place fails the
-  lint job.
+- **package.json**: Linted in CI by `bvandrc/lint-package-json`, which
+  enforces top-level key order, alphabetical `dependencies` and
+  `devDependencies`, and exact-semver `version`. Adding a field in the wrong
+  place, or a dependency out of order, fails the lint job.
 - **Linting and formatting**: Biome is the linter *and* formatter — no
   eslint/prettier here. Style is single quotes, no semicolons, 2-space indent,
   80 columns; run `pnpm format` after making edits instead of hand-formatting,
