@@ -15,6 +15,10 @@ concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
 
+env:
+  CONVENTIONS_REPO: bvandrc/bvandrc-conventions
+  SYNC_MESSAGE: 'chore: sync convention docs from bvandrc-conventions'
+
 jobs:
   sync:
     name: Sync conventions
@@ -27,7 +31,7 @@ jobs:
       - name: Checkout conventions
         uses: actions/checkout@v7
         with:
-          repository: bvandrc/bvandrc-conventions
+          repository: ${{ env.CONVENTIONS_REPO }}
           path: .conventions-src
 
       # Only the files listed here are synced — a project on a different stack
@@ -50,11 +54,11 @@ jobs:
         with:
           branch: chore/sync-convention-docs
           delete-branch: true
-          commit-message: 'chore: sync convention docs from bvandrc-conventions'
-          title: 'chore: sync convention docs from bvandrc-conventions'
+          commit-message: ${{ env.SYNC_MESSAGE }}
+          title: ${{ env.SYNC_MESSAGE }}
           body: |
             Automated sync from
-            [bvandrc-conventions](https://github.com/bvandrc/bvandrc-conventions).
+            [${{ env.CONVENTIONS_REPO }}](https://github.com/${{ env.CONVENTIONS_REPO }}).
 
             Edit conventions upstream — this directory is overwritten on every
             sync, so changes made here are lost.
