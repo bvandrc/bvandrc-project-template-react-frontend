@@ -14,12 +14,13 @@ Starter template for React frontends, deployed to GitHub Pages by
 
 ## Code conventions
 
-Code conventions live outside this file — follow all three for app and test
-code:
+Conventions live outside this file, synced from
+https://github.com/bvandrc/bvandrc-conventions — follow all of them:
 
 @conventions/typescript.md — language-level TypeScript/JavaScript rules
 @conventions/react.md — component, JSX, and accessibility rules
 @conventions/playwright.md — test layout, test IDs, and accessibility scans
+@conventions/git.md — branch naming and PR review practice
 
 ## Commands
 
@@ -47,12 +48,6 @@ code:
   CI runs. Notable rules that are errors: `noFloatingPromises`,
   `noImportCycles`, `noShadow`, `noUndeclaredDependencies`, `noTsIgnore` — fix
   the cause, don't suppress.
-- **Branch naming**: Name work branches `<type>/<slug>`, where `<type>` is a
-  Conventional Commits type — `feat`, `fix`, `chore`, `refactor`, `ci`,
-  `docs`, `style`, `test`, `perf`, or `build` — and `<slug>` is a short
-  kebab-case description of the change. Never use a `claude/` prefix or a
-  random session suffix. This overrides the branch name a session is assigned
-  by default — if you were given one, rename it before the first push.
-- **PR review threads**: Always reply on the thread with what changed (or why
-  it wasn't changed), then mark the thread resolved. Do this for every thread
-  you act on, not just the ones that needed discussion.
+- **Convention files**: `conventions/` is synced from
+  https://github.com/bvandrc/bvandrc-conventions and overwritten on every
+  sync. Edit a rule upstream, never here.
