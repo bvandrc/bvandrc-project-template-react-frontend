@@ -3,4 +3,4 @@
 > A Vite + React + TypeScript starter with Tailwind CSS, Biome, and Playwright suites for end-to-end, accessibility, and Lighthouse checks.
 
 ## Links
-- [Website](https://bvandrc.github.io/project-template-react-frontend/)
+- [Website](https://bvandrc.github.io/bvandrc-project-template-react-frontend/)

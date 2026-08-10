@@ -1,5 +1,5 @@
 {
-  "name": "project-template-react-frontend",
+  "name": "bvandrc-project-template-react-frontend",
   "version": "1.0.0",
   "private": true,
   "description": "Vite + React + TypeScript starter with Tailwind, Biome, and Playwright e2e/a11y/Lighthouse suites",
@@ -8,13 +8,13 @@
     "template",
     "vite"
   ],
-  "homepage": "https://bvandrc.github.io/project-template-react-frontend/",
+  "homepage": "https://bvandrc.github.io/bvandrc-project-template-react-frontend/",
   "bugs": {
-    "url": "https://github.com/bvandrc/project-template-react-frontend/issues"
+    "url": "https://github.com/bvandrc/bvandrc-project-template-react-frontend/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bvandrc/project-template-react-frontend.git"
+    "url": "git+https://github.com/bvandrc/bvandrc-project-template-react-frontend.git"
   },
   "author": "Blake Vandercar",
   "license": "ISC",
