@@ -1,0 +1,54 @@
+name: Sync Conventions
+
+on:
+  schedule:
+    - cron: '0 9 * * 1' # Mondays, 09:00 UTC
+  workflow_dispatch: # Allows manual triggering
+  repository_dispatch: # Sent by bvandrc-conventions when it changes
+    types: [conventions-updated]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    name: Sync conventions
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v7
+
+      - name: Checkout conventions
+        uses: actions/checkout@v7
+        with:
+          repository: bvandrc/bvandrc-conventions
+          path: .conventions-src
+
+      # Delete first so files retired upstream are removed here too, and drop
+      # the source checkout so it is not committed by the next step.
+      - name: Copy conventions into place
+        run: |
+          rm -rf conventions
+          mkdir -p conventions
+          cp .conventions-src/conventions/*.md conventions/
+          rm -rf .conventions-src
+
+      - name: Open pull request on drift
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/sync-convention-docs
+          delete-branch: true
+          commit-message: 'chore: sync convention docs from bvandrc-conventions'
+          title: 'chore: sync convention docs from bvandrc-conventions'
+          body: |
+            Automated sync from
+            [bvandrc-conventions](https://github.com/bvandrc/bvandrc-conventions).
+
+            Edit conventions upstream — this directory is overwritten on every
+            sync, so changes made here are lost.
