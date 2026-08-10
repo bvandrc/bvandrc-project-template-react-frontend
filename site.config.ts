@@ -8,7 +8,7 @@
  * so every asset URL has to be prefixed with the repo name. Set to `'/'` if the
  * site moves to a custom domain or a user/org Pages repo.
  */
-export const BASE_PATH = '/project-template-react-frontend/'
+export const BASE_PATH = '/bvandrc-project-template-react-frontend/'
 
 /** Public URL of the deployed site. */
 export const SITE_URL = `https://bvandrc.github.io${BASE_PATH}`

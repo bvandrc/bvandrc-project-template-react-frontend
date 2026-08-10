@@ -78,7 +78,7 @@ jobs:
     name: ZAP Security Scan
     runs-on: ubuntu-latest
     # Kept for repos generated from this template, skipped in the template itself.
-    if: github.repository != 'bvandrc/project-template-react-frontend'
+    if: github.repository != 'bvandrc/bvandrc-project-template-react-frontend'
 
     env:
       PORT: 4173
@@ -98,7 +98,7 @@ jobs:
       - name: ZAP Baseline Security Scan
         uses: zaproxy/action-baseline@v0.14.0
         with:
-          target: http://localhost:${{ env.PORT }}/project-template-react-frontend/
+          target: http://localhost:${{ env.PORT }}/bvandrc-project-template-react-frontend/
           cmd_options: '-a'
           fail_action: true
           allow_issue_writing: false
