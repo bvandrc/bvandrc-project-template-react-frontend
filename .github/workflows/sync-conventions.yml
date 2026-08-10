@@ -30,13 +30,19 @@ jobs:
           repository: bvandrc/bvandrc-conventions
           path: .conventions-src
 
-      # Delete first so files retired upstream are removed here too, and drop
-      # the source checkout so it is not committed by the next step.
+      # Only the files listed here are synced — a project on a different stack
+      # syncs a different subset. Add or remove entries to change what this
+      # repo tracks; a name that no longer exists upstream fails the step
+      # rather than silently dropping the file.
       - name: Copy conventions into place
+        env:
+          FILES: typescript.md react.md playwright.md git.md
         run: |
           rm -rf conventions
           mkdir -p conventions
-          cp .conventions-src/conventions/*.md conventions/
+          for file in $FILES; do
+            cp ".conventions-src/conventions/$file" "conventions/$file"
+          done
           rm -rf .conventions-src
 
       - name: Open pull request on drift
