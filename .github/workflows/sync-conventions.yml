@@ -4,8 +4,6 @@ on:
   schedule:
     - cron: '0 9 * * 1' # Mondays, 09:00 UTC
   workflow_dispatch: # Allows manual triggering
-  repository_dispatch: # Sent by bvandrc-conventions when it changes
-    types: [conventions-updated]
 
 # A called workflow cannot widen its own permissions, so they are granted here.
 permissions:
@@ -14,6 +12,6 @@ permissions:
 
 jobs:
   sync:
-    uses: bvandrc/bvandrc-conventions/.github/workflows/sync.yml@v1
+    uses: bvandrc/bvandrc-conventions/.github/workflows/sync.yml@main
     with:
       files: typescript.md react.md playwright.md git.md
