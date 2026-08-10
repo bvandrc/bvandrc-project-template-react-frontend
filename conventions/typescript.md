@@ -20,5 +20,3 @@ rules live in `./react.md`.
   prefixes. Don't repeat what the type signature conveys.
 - **es-toolkit**: Use `es-toolkit` functions when simpler than the builtin
   equivalents — especially `omit`/`pick`.
-- **Type suppression**: Never `@ts-ignore`/`@ts-expect-error` your way past an
-  error; fix the cause.
