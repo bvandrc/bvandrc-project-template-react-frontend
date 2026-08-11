@@ -1,5 +1,5 @@
-import { FeatureStatus } from '../constants'
-import type { Feature } from '../types'
+import { FeatureStatus } from '@/constants'
+import type { Feature } from '@/types'
 import { Badge, type BadgeTone } from './primitives/Badge'
 import { Card } from './primitives/Card'
 
