@@ -2,7 +2,7 @@
  * @fileoverview Types shared across the app.
  */
 
-import type { FeatureStatus } from '../constants'
+import type { FeatureStatus } from '@/constants'
 
 export interface Feature {
   name: string

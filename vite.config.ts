@@ -6,6 +6,9 @@ import { BASE_PATH } from './site.config'
 export default defineConfig(() => ({
   base: BASE_PATH,
   plugins: [tailwindcss(), react()],
+  resolve: {
+    tsconfigPaths: true,
+  },
   server: {
     host: '0.0.0.0',
     port: 5000,
