@@ -24,7 +24,7 @@ export const Button = ({
     className={classNames(
       'rounded-full px-4 py-1.5 text-sm font-medium transition-colors disabled:opacity-50',
       VARIANT_CLASSES[variant],
-      className,
+      className
     )}
     {...props}
   />

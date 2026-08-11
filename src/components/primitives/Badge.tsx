@@ -20,10 +20,9 @@ export const Badge = ({
   <span
     className={classNames(
       'rounded-full border border-current px-2 py-0.5 text-xs font-medium whitespace-nowrap',
-      TONE_CLASSES[tone],
+      TONE_CLASSES[tone]
     )}
-    {...props}
-  >
+    {...props}>
     {children}
   </span>
 )

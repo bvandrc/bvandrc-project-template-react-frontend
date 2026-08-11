@@ -8,7 +8,7 @@ export const Card = ({
   <div
     className={classNames(
       'rounded-xl border border-border bg-surface p-5',
-      className,
+      className
     )}
     {...props}
   />

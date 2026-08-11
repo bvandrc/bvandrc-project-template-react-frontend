@@ -8,7 +8,7 @@ test.describe('Accessibility', () => {
 
     await expect(page.locator(SELECTORS.HEADER.TITLE)).toBeVisible()
     await expect(
-      page.locator(SELECTORS.FEATURE_LIST.CARD.SELF).first(),
+      page.locator(SELECTORS.FEATURE_LIST.CARD.SELF).first()
     ).toBeVisible()
 
     await checkA11y(page)
