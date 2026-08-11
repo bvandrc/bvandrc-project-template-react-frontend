@@ -1,4 +1,5 @@
 import type { HTMLAttributes, ReactNode } from 'react'
+
 import { cn } from '@/utils'
 
 export type BadgeTone = 'positive' | 'caution' | 'neutral'

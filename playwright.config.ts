@@ -1,4 +1,5 @@
 import { defineConfig, devices, type Project } from '@playwright/test'
+
 import { BASE_PATH, SITE_URL } from './site.config'
 
 const RESULTS_FOLDER = 'playwright/results'

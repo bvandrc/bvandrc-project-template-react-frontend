@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+
 import { SELECTORS } from '../support/constants/selectors'
 
 const { HEADER, FEATURE_LIST, FOOTER } = SELECTORS
