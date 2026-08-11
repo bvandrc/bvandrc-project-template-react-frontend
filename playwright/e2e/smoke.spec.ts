@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-import { SELECTORS } from '../support/constants/selectors'
+import { SELECTORS } from '~/pw/support/constants/selectors'
 
 const { HEADER, FEATURE_LIST, FOOTER } = SELECTORS
 
