@@ -1,15 +1,12 @@
-import classNames from 'classnames'
 import type { HTMLAttributes } from 'react'
+import { cn } from '@/utils'
 
 export const Card = ({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={classNames(
-      'rounded-xl border border-border bg-surface p-5',
-      className
-    )}
+    className={cn('rounded-xl border border-border bg-surface p-5', className)}
     {...props}
   />
 )

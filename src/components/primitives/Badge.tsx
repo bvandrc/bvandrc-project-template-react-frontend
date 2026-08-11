@@ -1,5 +1,5 @@
-import classNames from 'classnames'
 import type { HTMLAttributes, ReactNode } from 'react'
+import { cn } from '@/utils'
 
 export type BadgeTone = 'positive' | 'caution' | 'neutral'
 
@@ -18,7 +18,7 @@ export const Badge = ({
   children: ReactNode
 } & HTMLAttributes<HTMLSpanElement>) => (
   <span
-    className={classNames(
+    className={cn(
       'rounded-full border border-current px-2 py-0.5 text-xs font-medium whitespace-nowrap',
       TONE_CLASSES[tone]
     )}

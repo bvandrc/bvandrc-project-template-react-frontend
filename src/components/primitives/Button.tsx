@@ -1,5 +1,5 @@
-import classNames from 'classnames'
 import type { ButtonHTMLAttributes } from 'react'
+import { cn } from '@/utils'
 
 type ButtonVariant = 'solid' | 'outline'
 
@@ -21,7 +21,7 @@ export const Button = ({
 }: ButtonProps) => (
   <button
     type={type}
-    className={classNames(
+    className={cn(
       'rounded-full px-4 py-1.5 text-sm font-medium transition-colors disabled:opacity-50',
       VARIANT_CLASSES[variant],
       className
