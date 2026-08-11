@@ -41,13 +41,6 @@ https://github.com/bvandrc/bvandrc-conventions — follow all of them:
   enforces top-level key order, alphabetical `dependencies` and
   `devDependencies`, and exact-semver `version`. Adding a field in the wrong
   place, or a dependency out of order, fails the lint job.
-- **Linting and formatting**: Biome is the linter *and* formatter — no
-  eslint/prettier here. Style is single quotes, no semicolons, 2-space indent,
-  80 columns; run `pnpm format` after making edits instead of hand-formatting,
-  and `pnpm check` (format + both type checks) before every commit — it's what
-  CI runs. Notable rules that are errors: `noFloatingPromises`,
-  `noImportCycles`, `noShadow`, `noUndeclaredDependencies`, `noTsIgnore` — fix
-  the cause, don't suppress.
 - **Convention files**: `conventions/` is synced from
   https://github.com/bvandrc/bvandrc-conventions and overwritten on every
   sync. Edit a rule upstream, never in that directory.

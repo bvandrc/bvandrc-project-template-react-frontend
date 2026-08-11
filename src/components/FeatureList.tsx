@@ -61,23 +61,20 @@ export const FeatureList = () => (
         <li key={name}>
           <Card
             className="flex h-full flex-col gap-2"
-            data-testid="feature-card"
-          >
+            data-testid="feature-card">
             <div className="flex items-start justify-between gap-3">
               <h3 className="font-medium" data-testid="feature-card-name">
                 {name}
               </h3>
               <Badge
                 tone={STATUS_TONES[status]}
-                data-testid="feature-card-status"
-              >
+                data-testid="feature-card-status">
                 {status}
               </Badge>
             </div>
             <p
               className="text-sm text-ink-muted"
-              data-testid="feature-card-description"
-            >
+              data-testid="feature-card-description">
               {description}
             </p>
           </Card>

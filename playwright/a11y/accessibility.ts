@@ -7,14 +7,14 @@ function formatViolations(violations: Result[]): string {
     .map(
       (v) =>
         `\n[${v.impact}] ${v.id}: ${v.help}\n  ${v.helpUrl}\n` +
-        v.nodes.map((n) => `  - ${n.target.join(' ')}`).join('\n'),
+        v.nodes.map((n) => `  - ${n.target.join(' ')}`).join('\n')
     )
     .join('\n')
 }
 
 export async function checkA11y(
   page: Page,
-  options: { disableRules?: string[] } = {},
+  options: { disableRules?: string[] } = {}
 ) {
   // Chrome reports interpolated values mid-transition, which axe reads as
   // contrast failures that never actually render. Looping CSS animations are
@@ -22,7 +22,7 @@ export async function checkA11y(
   await page.waitForFunction(() =>
     document
       .getAnimations()
-      .every((a) => !(a instanceof CSSTransition) || a.playState !== 'running'),
+      .every((a) => !(a instanceof CSSTransition) || a.playState !== 'running')
   )
 
   const builder = new AxeBuilder({ page })
