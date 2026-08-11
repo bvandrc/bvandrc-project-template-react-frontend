@@ -10,8 +10,7 @@ export const Header = () => (
     />
     <h1
       className="text-3xl font-semibold tracking-tight"
-      data-testid="header-title"
-    >
+      data-testid="header-title">
       React Frontend Template
     </h1>
     <p className="max-w-prose text-ink-muted" data-testid="header-tagline">

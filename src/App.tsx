@@ -11,8 +11,7 @@ export const App = () => (
     </main>
     <footer
       className="mt-auto border-t border-border pt-5 text-sm text-ink-muted"
-      data-testid="footer"
-    >
+      data-testid="footer">
       Replace this page with your app.
     </footer>
   </div>
