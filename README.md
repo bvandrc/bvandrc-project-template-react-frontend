@@ -24,8 +24,7 @@ The committed app is a placeholder. Replace it with your own.
 | `pnpm pw:open`         | Playwright UI mode                                 |
 | `pnpm pw:report`       | Open the last HTML report                          |
 
-The Playwright suites run against `vite preview`, so build first (`pnpm build`)
-and start it with `pnpm preview:ci`, or let CI do it.
+The Playwright suites run against `vite preview`, so build first (`pnpm build`) and start it with `pnpm preview:ci`, or let CI do it.
 
 ## Layout
 
