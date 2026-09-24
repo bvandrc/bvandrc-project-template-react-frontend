@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
@@ -18,5 +19,14 @@ export default defineConfig(() => ({
   build: {
     target: 'esnext',
     modulePreload: false,
+  },
+  test: {
+    environment: 'jsdom',
+    include: ['src/**/__tests__/**/*.test.{ts,tsx}'],
+    setupFiles: ['./vitest.setup.ts'],
+    restoreMocks: true,
+    unstubGlobals: true,
+    // Vitest serves `BASE_URL` as '/' whatever `base` says; match the deploy.
+    env: { BASE_URL: BASE_PATH },
   },
 }))

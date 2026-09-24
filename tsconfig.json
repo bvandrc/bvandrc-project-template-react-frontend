@@ -7,7 +7,9 @@
     /* Bundler mode */
     "moduleResolution": "bundler",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      // Lets unit tests query the same test ids the Playwright suites do.
+      "~/pw/support/*": ["./playwright/support/*"]
     },
     "esModuleInterop": true,
     "resolveJsonModule": true,

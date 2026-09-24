@@ -5,6 +5,7 @@ A starting point for a static React frontend deployed to GitHub Pages.
 - **Vite 8** + **React 18** + **TypeScript**
 - **Tailwind CSS 4** via `@tailwindcss/vite`, with theme tokens in [src/styles/index.css](src/styles/index.css)
 - **Biome** for formatting, linting, and import sorting
+- **Vitest** + **Testing Library** for unit and component tests
 - **Playwright** suites for end-to-end, accessibility (axe), and Lighthouse checks
 - **GitHub Actions** for CI, GitHub Pages deploys, and post-deploy Lighthouse audits
 
@@ -18,6 +19,8 @@ The committed app is a placeholder. Replace it with your own.
 | `pnpm build`           | Production build into `dist`                       |
 | `pnpm preview`         | Build, then serve `dist`                           |
 | `pnpm check`           | Format + lint + type check (app and Playwright)    |
+| `pnpm test:unit`       | Vitest unit and component tests, once              |
+| `pnpm test:unit:watch` | Vitest in watch mode                               |
 | `pnpm test:e2e`        | End-to-end smoke tests                             |
 | `pnpm test:a11y`       | axe scans, desktop and mobile viewports            |
 | `pnpm test:lighthouse` | Lighthouse audits against the local preview server |
@@ -33,7 +36,7 @@ The Playwright suites run against `vite preview`, so build first (`pnpm build`) 
   actions/
     setup/            Composite action: pnpm + Node + install
     setup-playwright/ Composite action: Playwright browser cache + install
-  workflows/      CI, deploy, and production Lighthouse
+  workflows/      CI, PR reports, deploy, and production Lighthouse
 public/
   CNAME           Custom domain for GitHub Pages (only needed for GH pages)
   favicon.svg     Browser tab icon
@@ -46,6 +49,7 @@ src/
   components/
     primitives/   Presentational building blocks (Button, Card, Badge)
     ...           Feature components composed from primitives
+    __tests__/    Unit tests, beside the modules they cover (in every src/ folder)
   constants/      Shared enums and constants
   hooks/          camelCase files, e.g. useMobile.ts
   styles/         Tailwind entrypoint and theme tokens
@@ -59,13 +63,15 @@ playwright/
     constants/
       selectors.ts
 tsconfig.json     App TypeScript config
-vite.config.ts    Vite config (port, Tailwind plugin, build options)
+vite.config.ts    Vite and Vitest config (port, Tailwind plugin, build and test options)
+vitest.setup.ts   jest-dom matchers and Testing Library cleanup
 biome.jsonc       Formatter, linter, and import sorter config
 index.html        HTML entry point (title, meta, og tags)
 ```
 
 ## CI
 
-- **CI** — lint, type check, and the three Playwright suites on every push and PR
+- **CI** — lint, type check, unit tests, and the three Playwright suites on every push and PR
+- **PR Reports** — changed-line count and bundle-size diff, posted as sticky comments on each PR
 - **Deploy** — build and publish `dist` to GitHub Pages on the default branch
 - **Production Lighthouse** — audits the live site 15 minutes after each deploy
