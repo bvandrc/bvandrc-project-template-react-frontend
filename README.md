@@ -65,7 +65,6 @@ shared/
 tsconfig.json     App TypeScript config
 vite.config.ts    Vite config (port, Tailwind plugin, build options)
 vitest.config.ts  Vitest config, layered on the Vite one
-vitest.setup.ts   Testing Library cleanup between tests
 biome.jsonc       Formatter, linter, and import sorter config
 index.html        HTML entry point (title, meta, og tags)
 ```
