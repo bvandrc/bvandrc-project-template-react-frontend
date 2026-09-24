@@ -27,6 +27,10 @@ const stubViewportWidth = (width: number) =>
   })
 
 describe('useIsMobile', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
   it('is true below 768px', () => {
     for (const width of [
       320,

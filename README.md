@@ -19,8 +19,8 @@ The committed app is a placeholder. Replace it with your own.
 | `pnpm build`           | Production build into `dist`                       |
 | `pnpm preview`         | Build, then serve `dist`                           |
 | `pnpm check`           | Format + lint + type check (app and Playwright)    |
-| `pnpm test:unit`       | Vitest unit and component tests, once              |
-| `pnpm test:unit:watch` | Vitest in watch mode                               |
+| `pnpm test`            | Vitest unit tests, once                            |
+| `pnpm test:watch`      | Vitest in watch mode                               |
 | `pnpm test:e2e`        | End-to-end smoke tests                             |
 | `pnpm test:a11y`       | axe scans, desktop and mobile viewports            |
 | `pnpm test:lighthouse` | Lighthouse audits against the local preview server |
@@ -64,7 +64,7 @@ shared/
     selectors.ts  The data-testid registry
 tsconfig.json     App TypeScript config
 vite.config.ts    Vite config (port, Tailwind plugin, build options)
-vitest.config.ts  Vitest config, layered on the Vite one
+vitest.config.ts  Vitest config (happy-dom, globals, aliases)
 biome.jsonc       Formatter, linter, and import sorter config
 index.html        HTML entry point (title, meta, og tags)
 ```
