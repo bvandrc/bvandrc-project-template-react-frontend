@@ -67,7 +67,7 @@ importers:
         specifier: ^4
         version: 4.12.1
       happy-dom:
-        specifier: ^20.14.5
+        specifier: ^20
         version: 20.14.5
       lighthouse:
         specifier: ^13
