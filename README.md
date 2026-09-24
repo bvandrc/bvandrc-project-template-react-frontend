@@ -47,7 +47,7 @@ src/
     primitives/   Presentational building blocks (Button, Card, Badge)
     ...           Feature components composed from primitives
   constants/      Shared enums and constants
-  hooks/          camelCase files, e.g. useMobile.tsx
+  hooks/          camelCase files, e.g. useMobile.ts
   styles/         Tailwind entrypoint and theme tokens
   types/          Shared types
   utils/          Shared helpers
