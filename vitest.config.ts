@@ -1,6 +1,5 @@
 import { defineConfig, mergeConfig } from 'vitest/config'
 
-import { BASE_PATH } from './site.config'
 import viteConfig from './vite.config'
 
 export default defineConfig((env) =>
@@ -11,8 +10,6 @@ export default defineConfig((env) =>
       setupFiles: ['./vitest.setup.ts'],
       restoreMocks: true,
       unstubGlobals: true,
-      // Vitest serves `BASE_URL` as '/' whatever `base` says; match the deploy.
-      env: { BASE_URL: BASE_PATH },
     },
   })
 )

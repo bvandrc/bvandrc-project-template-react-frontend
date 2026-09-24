@@ -60,12 +60,12 @@ playwright/
   a11y/           axe accessibility tests
   lighthouse/     google lighthouse tests
 shared/
-  test-support/   Helpers both test suites import
+  test-support/   Test helpers either suite can import
     selectors.ts  The data-testid registry
 tsconfig.json     App TypeScript config
 vite.config.ts    Vite config (port, Tailwind plugin, build options)
 vitest.config.ts  Vitest config, layered on the Vite one
-vitest.setup.ts   jest-dom matchers and Testing Library cleanup
+vitest.setup.ts   Testing Library cleanup between tests
 biome.jsonc       Formatter, linter, and import sorter config
 index.html        HTML entry point (title, meta, og tags)
 ```
