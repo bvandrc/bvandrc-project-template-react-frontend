@@ -51,7 +51,7 @@ const STATUS_TONES = {
   [FeatureStatus.STABLE]: 'positive',
   [FeatureStatus.BETA]: 'caution',
   [FeatureStatus.PLANNED]: 'neutral',
-} satisfies Record<FeatureStatus, BadgeTone>
+} as const satisfies Record<FeatureStatus, BadgeTone>
 
 export const FeatureList = () => (
   <section className="flex flex-col gap-5" data-testid="feature-list">

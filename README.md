@@ -63,7 +63,8 @@ playwright/
     constants/
       selectors.ts
 tsconfig.json     App TypeScript config
-vite.config.ts    Vite and Vitest config (port, Tailwind plugin, build and test options)
+vite.config.ts    Vite config (port, Tailwind plugin, build options)
+vitest.config.ts  Vitest config, layered on the Vite one
 vitest.setup.ts   jest-dom matchers and Testing Library cleanup
 biome.jsonc       Formatter, linter, and import sorter config
 index.html        HTML entry point (title, meta, og tags)

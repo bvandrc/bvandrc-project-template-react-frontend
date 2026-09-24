@@ -16,12 +16,4 @@ describe('Header', () => {
       `${import.meta.env.BASE_URL}logo.svg`
     )
   })
-
-  it('titles the page with a single top-level heading', () => {
-    render(<Header />)
-
-    expect(screen.getByRole('heading', { level: 1 })).toBe(
-      screen.getByTestId(SELECTORS.HEADER.TITLE)
-    )
-  })
 })

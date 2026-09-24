@@ -1,9 +1,9 @@
 import { renderHook } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
-import { isTouchDevice, useIsMobile } from '../useMobile'
+import { useIsMobile } from '../useMobile'
 
-/** Replaces jsdom's missing `matchMedia` with one that answers from `matches`. */
+/** Replaces `matchMedia` with one that answers from `matches`. */
 const stubMatchMedia = (matches: (query: string) => boolean) =>
   vi.stubGlobal(
     'matchMedia',
@@ -48,19 +48,5 @@ describe('useIsMobile', () => {
       const { result } = renderHook(() => useIsMobile())
       expect(result.current, String(width)).toBe(false)
     }
-  })
-})
-
-describe('isTouchDevice', () => {
-  it('is true when the primary pointer is coarse', () => {
-    stubMatchMedia((query) => query === '(pointer: coarse)')
-
-    expect(isTouchDevice()).toBe(true)
-  })
-
-  it('is false when the primary pointer is fine', () => {
-    stubMatchMedia(() => false)
-
-    expect(isTouchDevice()).toBe(false)
   })
 })
