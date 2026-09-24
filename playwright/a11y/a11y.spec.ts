@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-import { SELECTORS } from '~/pw/support/constants/selectors'
+import { SELECTORS } from '~/test-support/selectors'
 import { checkA11y } from './accessibility'
 
 test.describe('Accessibility', () => {

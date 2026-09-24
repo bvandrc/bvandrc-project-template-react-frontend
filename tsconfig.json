@@ -8,8 +8,7 @@
     "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./src/*"],
-      // Lets unit tests query the same test ids the Playwright suites do.
-      "~/pw/support/*": ["./playwright/support/*"]
+      "~/test-support/*": ["./shared/test-support/*"]
     },
     "esModuleInterop": true,
     "resolveJsonModule": true,

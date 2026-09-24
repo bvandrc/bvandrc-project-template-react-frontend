@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import { SELECTORS } from '~/pw/support/constants/selectors'
+import { SELECTORS } from '~/test-support/selectors'
 import { Header } from '../Header'
 
 describe('Header', () => {

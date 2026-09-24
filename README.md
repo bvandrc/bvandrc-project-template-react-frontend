@@ -59,9 +59,9 @@ playwright/
   e2e/            e2e tests
   a11y/           axe accessibility tests
   lighthouse/     google lighthouse tests
-  support/        Shared test helpers
-    constants/
-      selectors.ts
+shared/
+  test-support/   Helpers both test suites import
+    selectors.ts  The data-testid registry
 tsconfig.json     App TypeScript config
 vite.config.ts    Vite config (port, Tailwind plugin, build options)
 vitest.config.ts  Vitest config, layered on the Vite one

@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test'
 import { desktopConfig } from 'lighthouse'
 
-import { SELECTORS } from '~/pw/support/constants/selectors'
+import { SELECTORS } from '~/test-support/selectors'
 import { lighthouseTest as test } from './fixtures'
 
 test('Home page', async ({ page, runAudit }) => {
