@@ -1,42 +1,22 @@
 import { renderHook } from '@testing-library/react'
+import type { DetachedWindowAPI } from 'happy-dom'
 
 import { useIsMobile } from '../useMobile'
 
-/** Replaces `matchMedia` with one that answers from `matches`. */
-const stubMatchMedia = (matches: (query: string) => boolean) =>
-  vi.stubGlobal(
-    'matchMedia',
-    (query: string) =>
-      ({
-        matches: matches(query),
-        media: query,
-        onchange: null,
-        addListener: vi.fn(),
-        removeListener: vi.fn(),
-        addEventListener: vi.fn(),
-        removeEventListener: vi.fn(),
-        dispatchEvent: vi.fn(),
-      }) satisfies MediaQueryList
-  )
-
-/** Answers `max-width` queries as a viewport `width` pixels wide would. */
-const stubViewportWidth = (width: number) =>
-  stubMatchMedia((query) => {
-    const maxWidth = /\(max-width: (\d+)px\)/.exec(query)?.[1]
-    return maxWidth !== undefined && width <= Number(maxWidth)
-  })
+declare global {
+  interface Window {
+    /** The handle on happy-dom's own window, which the test environment adds. */
+    happyDOM: DetachedWindowAPI
+  }
+}
 
 describe('useIsMobile', () => {
-  afterEach(() => {
-    vi.unstubAllGlobals()
-  })
-
   it('is true below 768px', () => {
     for (const width of [
       320,
       767, // the last width before Tailwind's `md`
     ]) {
-      stubViewportWidth(width)
+      window.happyDOM.setViewport({ width })
       const { result } = renderHook(() => useIsMobile())
       expect(result.current, String(width)).toBe(true)
     }
@@ -47,7 +27,7 @@ describe('useIsMobile', () => {
       768, // Tailwind's `md`, where the layout switches
       1280,
     ]) {
-      stubViewportWidth(width)
+      window.happyDOM.setViewport({ width })
       const { result } = renderHook(() => useIsMobile())
       expect(result.current, String(width)).toBe(false)
     }
