@@ -1,15 +1,15 @@
 import { expect, test } from '@playwright/test'
 
-import { SELECTORS } from '~/pw/support/constants/selectors'
+import { SELECTORS } from '~/test-support/selectors'
 import { checkA11y } from './accessibility'
 
 test.describe('Accessibility', () => {
   test('Home page', async ({ page }) => {
     await page.goto('/')
 
-    await expect(page.locator(SELECTORS.HEADER.TITLE)).toBeVisible()
+    await expect(page.getByTestId(SELECTORS.HEADER.TITLE)).toBeVisible()
     await expect(
-      page.locator(SELECTORS.FEATURE_LIST.CARD.SELF).first()
+      page.getByTestId(SELECTORS.FEATURE_LIST.CARD.SELF).first()
     ).toBeVisible()
 
     await checkA11y(page)
