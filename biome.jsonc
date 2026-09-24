@@ -21,7 +21,7 @@
     {
       // A test is named for the module it covers, and a component's name is
       // PascalCase -- which Biome only allows on a file exporting that name.
-      "includes": ["**/__tests__/**"],
+      "includes": ["**/__tests__/**/*.tsx"],
       "linter": {
         "rules": {
           "style": {
