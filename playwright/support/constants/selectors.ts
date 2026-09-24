@@ -1,22 +1,19 @@
-const testId = <S extends string>(testid: S) =>
-  `[data-testid="${testid}"]` as const
-
 export const SELECTORS = {
   HEADER: {
-    SELF: testId('header'),
-    LOGO: testId('header-logo'),
-    TITLE: testId('header-title'),
-    TAGLINE: testId('header-tagline'),
+    SELF: 'header',
+    LOGO: 'header-logo',
+    TITLE: 'header-title',
+    TAGLINE: 'header-tagline',
   },
   FEATURE_LIST: {
-    SELF: testId('feature-list'),
+    SELF: 'feature-list',
     CARD: {
-      SELF: testId('feature-card'),
-      NAME: testId('feature-card-name'),
-      STATUS: testId('feature-card-status'),
-      DESCRIPTION: testId('feature-card-description'),
+      SELF: 'feature-card',
+      NAME: 'feature-card-name',
+      STATUS: 'feature-card-status',
+      DESCRIPTION: 'feature-card-description',
     },
-    exampleTestIdGetter: (itemId: string) => testId(`feature-card-${itemId}`),
+    exampleTestIdGetter: (itemId: string) => `feature-card-${itemId}` as const,
   },
-  FOOTER: testId('footer'),
+  FOOTER: 'footer',
 } as const

@@ -8,8 +8,10 @@ test('home page loads', async ({ page }) => {
   await page.goto('/')
 
   await expect(page).toHaveTitle('React Frontend Template')
-  await expect(page.locator(HEADER.TITLE)).toHaveText('React Frontend Template')
-  await expect(page.locator(HEADER.LOGO)).toBeVisible()
-  await expect(page.locator(FEATURE_LIST.CARD.SELF)).toHaveCount(8)
-  await expect(page.locator(FOOTER)).toBeVisible()
+  await expect(page.getByTestId(HEADER.TITLE)).toHaveText(
+    'React Frontend Template'
+  )
+  await expect(page.getByTestId(HEADER.LOGO)).toBeVisible()
+  await expect(page.getByTestId(FEATURE_LIST.CARD.SELF)).toHaveCount(8)
+  await expect(page.getByTestId(FOOTER)).toBeVisible()
 })
