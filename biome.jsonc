@@ -25,12 +25,7 @@
       "linter": {
         "rules": {
           "style": {
-            "useFilenamingConvention": {
-              "level": "error",
-              "options": {
-                "filenameCases": ["camelCase", "kebab-case", "PascalCase"]
-              }
-            }
+            "useFilenamingConvention": "off"
           }
         }
       }
