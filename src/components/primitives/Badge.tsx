@@ -1,5 +1,3 @@
-import type { HTMLAttributes, ReactNode } from 'react'
-
 import { cn } from '@/utils'
 
 export type BadgeTone = 'positive' | 'caution' | 'neutral'
@@ -16,8 +14,8 @@ export const Badge = ({
   ...props
 }: {
   tone?: BadgeTone
-  children: ReactNode
-} & HTMLAttributes<HTMLSpanElement>) => (
+  children: React.ReactNode
+} & React.HTMLAttributes<HTMLSpanElement>) => (
   <span
     className={cn(
       'rounded-full border border-current px-2 py-0.5 text-xs font-medium whitespace-nowrap',

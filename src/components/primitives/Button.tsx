@@ -1,10 +1,8 @@
-import type { ButtonHTMLAttributes } from 'react'
-
 import { cn } from '@/utils'
 
 type ButtonVariant = 'solid' | 'outline'
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant
 }
 
