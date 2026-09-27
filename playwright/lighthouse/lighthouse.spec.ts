@@ -4,9 +4,11 @@ import { desktopConfig } from 'lighthouse'
 import { SELECTORS } from '~/test-support/selectors'
 import { lighthouseTest as test } from './fixtures'
 
+const { HEADER } = SELECTORS
+
 test('Home page', async ({ page, runAudit }) => {
   await page.goto('/')
-  await expect(page.getByTestId(SELECTORS.HEADER.TITLE)).toBeVisible()
+  await expect(page.getByTestId(HEADER.TITLE)).toBeVisible()
 
   await runAudit({
     name: 'home-desktop',
