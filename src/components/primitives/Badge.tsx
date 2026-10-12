@@ -12,10 +12,10 @@ export const Badge = ({
   tone = 'neutral',
   children,
   ...props
-}: {
+}: React.HTMLAttributes<HTMLSpanElement> & {
   tone?: BadgeTone
   children: React.ReactNode
-} & React.HTMLAttributes<HTMLSpanElement>) => (
+}) => (
   <span
     className={cn(
       'rounded-full border border-current px-2 py-0.5 text-xs font-medium whitespace-nowrap',
