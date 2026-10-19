@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@bvandrc/react-ui-hooks':
+        specifier: ^1
+        version: 1.0.0(@testing-library/react@16.3.3(@testing-library/dom@10.4.2)(@types/react-dom@18.3.7(@types/react@18.3.31))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(vitest@5.0.1(@opentelemetry/api@1.9.1)(@types/node@24.13.3)(happy-dom@20.14.5)(jsdom@30.1.1)(vite@8.1.5(@types/node@24.13.3)(jiti@2.7.0)))
       clsx:
         specifier: ^2
         version: 2.1.1
@@ -186,6 +189,19 @@ packages:
   '@bramus/specificity@2.4.2':
     resolution: {integrity: sha512-ctxtJ/eA+t+6q2++vj5j7FYX3nRu311q1wfYH3xjlLOsczhlhxAg2FWNUXhpGvAw3BWo1xBcvOV6/YLc2r5FJw==}
     hasBin: true
+
+  '@bvandrc/react-ui-hooks@1.0.0':
+    resolution: {integrity: sha512-dYsIGnl6jS1dt1jG5NgSYwpFGKlE5b5mOmOFJ6F4gJTiScp1FVVPkrlgLnlLXzRvnRoAnD022ZAsi5riamQvcw==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      '@testing-library/react': ^16
+      react: ^18 || ^19
+      vitest: '>=3'
+    peerDependenciesMeta:
+      '@testing-library/react':
+        optional: true
+      vitest:
+        optional: true
 
   '@csstools/color-helpers@6.1.1':
     resolution: {integrity: sha512-gLNsunvwf3mCi5u5o46/Z/JcJMnhbHSaZ69rkgPzNM3J4s8hWwpPUQB6/tt0EDFyCiWzxANlx+2LJwpYj4zS1w==}
@@ -1071,8 +1087,8 @@ packages:
       canvas:
         optional: true
 
-  legacy-javascript@0.0.1:
-    resolution: {integrity: sha512-lPyntS4/aS7jpuvOlitZDFifBCb4W8L/3QU0PLbUTUj+zYah8rfVjYic88yG7ZKTxhS5h9iz7duT8oUXKszLhg==}
+  legacy-javascript@0.0.3:
+    resolution: {integrity: sha512-1r6MT4dVaJyXt4G07Cm2cQ0AUaLJdefiEp4SmIAylA++gnEQ82YvmzE58RkM5EP0fk5hROLCslUPGnwIYdZQVA==}
 
   lighthouse-audit-utils@1.2.4:
     resolution: {integrity: sha512-LfSd/IahlJ07+jvjcHUSnSc5kr06YwyRZcH6LkchdtSwCDzf4w2a8f4IZKOwFNQPFHnvIoe+DtJR1oX+CsteAw==}
@@ -1810,6 +1826,16 @@ snapshots:
       css-tree: 3.2.1
     optional: true
 
+  '@bvandrc/react-ui-hooks@1.0.0(@testing-library/react@16.3.3(@testing-library/dom@10.4.2)(@types/react-dom@18.3.7(@types/react@18.3.31))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(vitest@5.0.1(@opentelemetry/api@1.9.1)(@types/node@24.13.3)(happy-dom@20.14.5)(jsdom@30.1.1)(vite@8.1.5(@types/node@24.13.3)(jiti@2.7.0)))':
+    dependencies:
+      es-toolkit: 1.50.0
+      react: 18.3.1
+      type-fest: 5.8.0
+      usehooks-ts: 3.1.1(react@18.3.1)
+    optionalDependencies:
+      '@testing-library/react': 16.3.3(@testing-library/dom@10.4.2)(@types/react-dom@18.3.7(@types/react@18.3.31))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      vitest: 5.0.1(@opentelemetry/api@1.9.1)(@types/node@24.13.3)(happy-dom@20.14.5)(jsdom@30.1.1)(vite@8.1.5(@types/node@24.13.3)(jiti@2.7.0))
+
   '@csstools/color-helpers@6.1.1':
     optional: true
 
@@ -1958,7 +1984,7 @@ snapshots:
 
   '@paulirish/trace_engine@0.0.65':
     dependencies:
-      legacy-javascript: 0.0.1
+      legacy-javascript: 0.0.3
       third-party-web: 0.30.0
 
   '@playwright/test@1.62.0':
@@ -2540,7 +2566,7 @@ snapshots:
       - '@noble/hashes'
     optional: true
 
-  legacy-javascript@0.0.1: {}
+  legacy-javascript@0.0.3: {}
 
   lighthouse-audit-utils@1.2.4(@playwright/test@1.62.0)(lighthouse@13.4.1(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))):
     dependencies:
