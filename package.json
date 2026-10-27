@@ -19,7 +19,7 @@
   "author": "Blake Vandercar",
   "license": "ISC",
   "type": "module",
-  "packageManager": "pnpm@11.9.0",
+  "packageManager": "pnpm@12.15.0",
   "scripts": {
     "__c0": "====================[ Build & Development ]======================",
     "start": "pnpm dev",
@@ -67,7 +67,7 @@
     "@types/react-dom": "^18",
     "@vitejs/plugin-react": "^6",
     "axe-core": "^4",
-    "happy-dom": "^20",
+    "happy-dom": "^21",
     "lighthouse": "^13",
     "lighthouse-audit-utils": "^1",
     "tailwindcss": "^4",
