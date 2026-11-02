@@ -72,6 +72,6 @@ index.html        HTML entry point (title, meta, og tags)
 ## CI
 
 - **CI** — lint, type check, unit tests, and the three Playwright suites on every push and PR
-- **PR Reports** — changed-line count and bundle-size diff, posted as sticky comments on each PR
+- **PR Reports** — changed-line count, written to the run's job summary on each PR
 - **Deploy** — build and publish `dist` to GitHub Pages on the default branch
 - **Production Lighthouse** — audits the live site 15 minutes after each deploy
