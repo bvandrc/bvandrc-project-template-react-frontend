@@ -1,3 +1,2 @@
 minimumReleaseAgeExclude:
-  - lighthouse-audit-utils # TODO: remove when aged
   - '@bvandrc/react-toolkit' # TODO: remove when aged
