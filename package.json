@@ -53,6 +53,7 @@
     "react-dom": "^18",
     "react-ga4": "^3",
     "tailwind-merge": "^3",
+    "ts-extras": "^1",
     "usehooks-ts": "^3"
   },
   "devDependencies": {
