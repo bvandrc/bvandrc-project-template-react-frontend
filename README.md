@@ -36,7 +36,7 @@ The Playwright suites run against `vite preview`, so build first (`pnpm build`) 
   actions/
     setup/            Composite action: pnpm + Node + install
     setup-playwright/ Composite action: Playwright browser cache + install
-  workflows/      CI, PR reports, deploy, and production Lighthouse
+  workflows/      CI, PR-only CI, deploy, and production Lighthouse
 public/
   CNAME           Custom domain for GitHub Pages (only needed for GH pages)
   favicon.svg     Browser tab icon
@@ -72,6 +72,6 @@ index.html        HTML entry point (title, meta, og tags)
 ## CI
 
 - **CI** — lint, type check, unit tests, and the three Playwright suites on every push and PR
-- **PR Reports** — changed-line count and bundle-size diff, posted as sticky comments on each PR
+- **PR CI** — pull-request-only jobs: the changed-line count, written to the run's job summary
 - **Deploy** — build and publish `dist` to GitHub Pages on the default branch
 - **Production Lighthouse** — audits the live site 15 minutes after each deploy
