@@ -46,7 +46,7 @@
     "pw:report": "playwright show-report playwright/results/html"
   },
   "dependencies": {
-    "@bvandrc/react-ui-hooks": "^1",
+    "@bvandrc/react-toolkit": "^2",
     "clsx": "^2",
     "es-toolkit": "^1",
     "react": "^18",
