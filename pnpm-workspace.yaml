@@ -1,2 +1,3 @@
 minimumReleaseAgeExclude:
   - '@bvandrc/react-toolkit' # TODO: remove when aged
+  - '@biomejs/*' # TODO: remove when aged
