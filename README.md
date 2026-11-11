@@ -51,7 +51,7 @@ src/
     ...           Feature components composed from primitives
     __tests__/    Unit tests, beside the modules they cover (in every src/ folder)
   constants/      Shared enums and constants
-  hooks/          camelCase files, e.g. useMobile.ts
+  hooks/          camelCase files, e.g. useSettings.ts (check @bvandrc/react-toolkit first)
   styles/         Tailwind entrypoint and theme tokens
   types/          Shared types
   utils/          Shared helpers
