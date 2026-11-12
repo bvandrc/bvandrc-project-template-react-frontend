@@ -1,10 +1,12 @@
 ## Project
 
-Starter template for React frontends, deployed to GitHub Pages by `.github/workflows/deploy.yml`.
+Starter template for React frontends, deployed to Cloudflare (Workers static assets, configured in `wrangler.jsonc`) by `.github/workflows/deploy.yml`. Every PR also gets a preview URL, linked from its "View deployment" button by `.github/workflows/preview.yml`. Each preview is a Cloudflare Worker Preview named `pr-<number>`, which `.github/workflows/preview-cleanup.yml` deletes once the PR closes.
 
 - **Stack**: React 18 + Vite + TypeScript, Tailwind v4, Biome, Vitest + Testing Library for unit/component tests, Playwright for e2e/a11y/Lighthouse.
 - **Layout**: `src/` is the app, with unit tests in `__tests__/` folders beside the modules they cover; `playwright/` is the browser suites; `shared/test-support/` holds test helpers either suite can import, like the test-id registry in `selectors.ts` (alias `~/test-support/*`).
-- **Base path**: Pages serves the site from a subpath, so `site.config.ts` holds `BASE_PATH`/`SITE_URL` and is imported by `vite.config.ts` and `playwright.config.ts`. In app code, build asset URLs from `import.meta.env.BASE_URL` (see `Header.tsx`) — a leading-slash path like `/logo.svg` 404s once deployed.
+- **Base path**: `site.config.ts` holds `BASE_PATH`/`SITE_URL` and is imported by `vite.config.ts` and `playwright.config.ts`. The site is served from the domain root today, but in app code still build asset URLs from `import.meta.env.BASE_URL` (see `Header.tsx`) so they keep working if that ever changes.
+- **Security headers**: `SECURITY_HEADERS` in `site.config.ts` is the one source for the CSP and other headers. The build writes it to `dist/_headers` for Cloudflare, and `vite preview` sends it, so CI's ZAP scan, which runs on `main` but not on PRs, checks it. A new third-party script, font, image, frame, or request origin must be added to the CSP there, or the browser blocks it in production.
+- **Cloudflare credentials**: the deploy, preview, and preview cleanup workflows need the repo secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
 
 ## Code conventions
 
@@ -28,5 +30,6 @@ Conventions live outside this file, synced from https://github.com/bvandrc/bvand
 ## Repo conventions
 
 - **Package manager**: pnpm. `npm install` writes a competing `package-lock.json` that CI ignores.
+- **PR descriptions**: Open every PR description with a link to its preview, `https://pr-<number>-bvandrc-project-template-react-frontend.bvandrc.workers.dev`. The `pr-<number>` Preview `preview.yml` uploads keeps that URL fixed across pushes, so it's known before the preview builds: once the PR is created and has its number, edit the link into its body.
 - **package.json**: Linted in CI by `bvandrc/lint-package-json`, which enforces top-level key order, alphabetical `dependencies` and `devDependencies`, and exact-semver `version`. Adding a field in the wrong place, or a dependency out of order, fails the lint job.
 - **Convention files**: `conventions/` is synced from https://github.com/bvandrc/bvandrc-conventions and overwritten on every sync. Edit a rule upstream, never in that directory.

@@ -12,7 +12,8 @@ test('home page loads', async ({ page }) => {
     'React Frontend Template'
   )
   // Checks the image loaded, not just its box: a wrong asset path (like a
-  // leading-slash `/logo.svg` under the Pages subpath) still renders the box.
+  // leading-slash `/logo.svg` once BASE_PATH is a subpath) still renders the
+  // box.
   await expect
     .poll(() =>
       page
