@@ -8,7 +8,7 @@
     "template",
     "vite"
   ],
-  "homepage": "https://bvandrc.github.io/bvandrc-project-template-react-frontend/",
+  "homepage": "https://bvandrc-project-template-react-frontend.pages.dev",
   "bugs": {
     "url": "https://github.com/bvandrc/bvandrc-project-template-react-frontend/issues"
   },
@@ -75,6 +75,7 @@
     "type-fest": "^5",
     "typescript": "^7",
     "vite": "^8",
-    "vitest": "^5"
+    "vitest": "^5",
+    "wrangler": "^4"
   }
 }
