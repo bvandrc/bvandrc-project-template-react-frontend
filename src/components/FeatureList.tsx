@@ -35,7 +35,7 @@ const FEATURES: Feature[] = [
     status: FeatureStatus.BETA,
   },
   {
-    name: 'Cloudflare deploy',
+    name: 'Cloudflare Pages deploy',
     description:
       'Build, check, and publish on every push to the default branch, with a preview for every PR.',
     status: FeatureStatus.STABLE,

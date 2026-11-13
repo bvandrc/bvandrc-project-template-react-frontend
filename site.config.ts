@@ -15,11 +15,11 @@ export const BASE_PATH = '/'
 /**
  * Public URL of the deployed site.
  *
- * Cloudflare serves the Worker named in wrangler.jsonc at
- * `https://<name>.<account subdomain>.workers.dev`. Update this if either
- * changes, or the site moves to a custom domain.
+ * Cloudflare Pages serves the project named in wrangler.jsonc at
+ * `https://<name>.pages.dev`. Update this if the name changes, or the site
+ * moves to a custom domain.
  */
-export const SITE_URL = `https://bvandrc-project-template-react-frontend.bvandrc.workers.dev${BASE_PATH}`
+export const SITE_URL = `https://bvandrc-project-template-react-frontend.pages.dev${BASE_PATH}`
 
 // Google Analytics (react-ga4) loads gtag.js and sends hits to these origins.
 const GA_SCRIPT_ORIGINS = 'https://*.googletagmanager.com'

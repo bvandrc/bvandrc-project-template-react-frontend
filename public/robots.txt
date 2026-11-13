@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bvandrc-project-template-react-frontend.bvandrc.workers.dev/sitemap.xml
+Sitemap: https://bvandrc-project-template-react-frontend.pages.dev/sitemap.xml

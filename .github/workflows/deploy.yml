@@ -1,6 +1,6 @@
 name: Deploy
 
-# Deploys to Cloudflare once CI passes on main. Needs the repo secrets
+# Deploys to Cloudflare Pages once CI passes on main. Needs the repo secrets
 # CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID.
 
 on:
@@ -24,7 +24,7 @@ jobs:
     if: github.event.workflow_run.conclusion == 'success'
     environment:
       name: production
-      url: https://bvandrc-project-template-react-frontend.bvandrc.workers.dev/
+      url: https://bvandrc-project-template-react-frontend.pages.dev/
 
     steps:
       - name: Checkout repo
@@ -45,3 +45,6 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           packageManager: pnpm
+          # The checkout is a detached SHA, so name the production branch
+          # rather than leave wrangler to read it from git.
+          command: pages deploy --branch=main

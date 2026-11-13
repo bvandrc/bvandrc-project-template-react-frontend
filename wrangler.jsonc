@@ -1,22 +1,9 @@
-// Cloudflare Workers config: serves the Vite build as static assets, deployed
-// by .github/workflows/deploy.yml and previewed per PR by preview.yml.
+// Cloudflare Pages config: serves the Vite build from
+// bvandrc-project-template-react-frontend.pages.dev, deployed by
+// .github/workflows/deploy.yml and previewed per PR by preview.yml.
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "bvandrc-project-template-react-frontend",
   "compatibility_date": "2026-11-01",
-  "assets": {
-    "directory": "./dist"
-  },
-  // The live site is on workers.dev. For a custom domain, add
-  // `"routes": [{ "pattern": "example.com", "custom_domain": true }]`, which
-  // attaches it on deploy, set `workers_dev` to false, and update SITE_URL in
-  // site.config.ts.
-  "workers_dev": true,
-  // Each Worker Preview gets a workers.dev URL; .github/workflows/preview.yml
-  // uses these.
-  "preview_urls": true,
-  // Required by `wrangler preview`, which preview.yml runs. Empty because a
-  // static site has no bindings a Preview would need kept apart from
-  // production.
-  "previews": {}
+  "pages_build_output_dir": "./dist"
 }

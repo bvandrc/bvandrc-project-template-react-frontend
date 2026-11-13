@@ -1,10 +1,9 @@
 name: Preview
 
-# Uploads each PR's build as a Cloudflare Worker Preview named `pr-<number>`,
-# without deploying it, and links its URL from the PR's "View deployment"
-# button, which posts no comment. Each push updates that Preview, so its URL,
-# `pr-<number>-bvandrc-project-template-react-frontend.bvandrc.workers.dev`,
-# stays the same.
+# Deploys each PR's build to Cloudflare Pages as a preview, and links it from
+# the PR's "View deployment" button, which posts no comment. Deploying under
+# the branch `pr-<number>` keeps one stable URL per PR across pushes,
+# `pr-<number>.bvandrc-project-template-react-frontend.pages.dev`.
 
 on:
   pull_request:
@@ -13,7 +12,7 @@ on:
 permissions:
   contents: read
 
-# Shared with preview-cleanup.yml, which cancels an upload when the PR closes.
+# Shared with preview-cleanup.yml, which cancels a deploy when the PR closes.
 concurrency:
   group: preview-${{ github.event.pull_request.number }}
   cancel-in-progress: true
@@ -38,7 +37,7 @@ jobs:
       - name: Build project
         run: pnpm build
 
-      - name: Upload preview
+      - name: Deploy preview
         id: upload
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -46,13 +45,12 @@ jobs:
           WRANGLER_OUTPUT_FILE_PATH: ${{ runner.temp }}/wrangler-output.ndjson
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          pnpm exec wrangler preview --name "pr-$PR_NUMBER"
-          url=$(jq -r 'select(.type == "preview") | .preview_urls[]? | select(test("\\.workers\\.dev"))' "$WRANGLER_OUTPUT_FILE_PATH" | head -1)
-          # Cloudflare only returns a preview URL once a deploy has applied
-          # `preview_urls: true` to the Worker, and the account has a
-          # workers.dev subdomain.
+          pnpm exec wrangler pages deploy --branch="pr-$PR_NUMBER"
+          # The branch alias stays the same across pushes; the per-deploy URL
+          # is the fallback.
+          url=$(jq -r 'select(.type == "pages-deploy-detailed") | .alias // .url // empty' "$WRANGLER_OUTPUT_FILE_PATH")
           if [ -z "$url" ]; then
-            echo "::error::No preview URL returned. Check that the account has a workers.dev subdomain and that a deploy has applied preview_urls: true."
+            echo "::error::No preview URL returned by wrangler pages deploy."
             exit 1
           fi
           echo "url=$url" >> "$GITHUB_OUTPUT"

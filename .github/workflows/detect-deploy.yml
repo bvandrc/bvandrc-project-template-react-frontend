@@ -29,7 +29,7 @@ jobs:
         id: detect-deploy
         uses: bvandrc/detect-deploy@v1
         with:
-          url: https://bvandrc-project-template-react-frontend.bvandrc.workers.dev/
+          url: https://bvandrc-project-template-react-frontend.pages.dev/
           interval-seconds: 20
           max-seconds: 300 # 5 minutes
 
