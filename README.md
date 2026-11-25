@@ -2,7 +2,7 @@
 
 A starting point for a static React frontend deployed to Cloudflare Pages, with a preview for every PR.
 
-- **Vite 8** + **React 18** + **TypeScript**
+- **Vite 8** + **React 19** + **TypeScript**
 - **Tailwind CSS 4** via `@tailwindcss/vite`, with theme tokens in [src/styles/index.css](src/styles/index.css)
 - **Biome** for formatting, linting, and import sorting
 - **Vitest** + **Testing Library** for unit and component tests
